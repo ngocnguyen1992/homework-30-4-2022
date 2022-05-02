@@ -1,0 +1,68 @@
+#include <stdio.h>
+void nhapmang(int arr[50][50], int n, int m) {
+    printf("nhap gia tri cho mang : ");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            scanf_s("%d", &arr[i][j]);
+        }
+    }
+}
+void xuatmang(int arr[50][50], int n, int m) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            printf("%.3d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+void giamdan(int arr[50][50], int n, int m)
+{
+    int temp;
+    for (int i = 0; i < n; i++) {       
+        for(int j = 0 ; j < m;j++){
+            for (int k = i+1; k < n; k++){
+                if (arr[i][j] < arr[k][j]) {
+                    temp = arr[i][j];
+                    arr[i][j] = arr[k][j];
+                    arr[k][j] = temp;
+                }
+            }
+        }
+    }
+}
+void tangdan(int arr[50][50], int n, int m) {
+    int temp;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            for (int k = i + 1; k < n; k++) {
+                if (arr[i][j] > arr[k][j]) {
+                    temp = arr[i][j];
+                    arr[i][j] = arr[k][j];
+                    arr[k][j] = temp;
+                }
+            }
+        }
+    }
+}
+void dieukien(int arr[50][50], int n, int m) {
+    for (int j = 0; j < m; j++) {
+        if (j % 2 == 0) {
+            giamdan(arr,n,m);
+        }
+        else {
+            tangdan(arr,n,m);
+        }
+    }
+}
+int main()
+{
+    int n,m;
+    printf("nhap chieu dai cho mang n :");
+    scanf_s("%d%d", &n,&m);
+    int arr[50][50];
+    nhapmang(arr, n,m);
+    xuatmang(arr, n, m);
+    dieukien(arr, n, m);
+    printf("mang sau khi sap xep cua ban la :\n");
+    xuatmang(arr, n,m);
+}
