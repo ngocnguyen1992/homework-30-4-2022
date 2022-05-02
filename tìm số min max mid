@@ -1,0 +1,54 @@
+#include <stdio.h>
+void nhapmang(int arr[50][50], int n, int m) {
+    printf("nhap gia tri cho mang : ");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            scanf_s("%d", &arr[i][j]);
+        }
+    }
+}
+void xuatmang(int arr[50][50], int n, int m) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            printf("%.3d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+int lonnhat(int arr[50][50], int n, int m, int i) {
+    int max = arr[i][0];
+    for (int j = 0; j < m; j++) {
+        if (arr[i][j] > max) {
+            max= arr[i][j];
+        }
+    }
+    return max;
+}
+int nhonhat(int arr[50][50], int n, int m, int i) {
+    int min = arr[i][0];
+    for (int j = 0; j < m; j++) {
+        if (arr[i][j] < min) {
+            min = arr[i][j];
+        }
+    }
+    return min;
+}
+int main()
+{
+    int n,m;
+    printf("nhap chieu dai cho mang n :");
+    scanf_s("%d%d", &n,&m);
+    int arr[50][50];
+    nhapmang(arr, n,m);
+    printf("mang ban da nhap la :\n");
+    xuatmang(arr, n, m);
+    for (int i = 0; i < n; i++) {
+        int max = lonnhat(arr, n, m, i);
+        int min = nhonhat(arr, n, m, i);   
+        int ave = (max + min) / 2;
+        if (ave < 0) {
+            ave = 0;
+        }
+    printf("dong %d co (min, max, mid) = (%d, %d, %d) \n", i+1,min,max,ave);
+    }
+}
