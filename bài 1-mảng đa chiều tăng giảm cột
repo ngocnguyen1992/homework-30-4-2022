@@ -35,25 +35,13 @@ void tangdan(int arr[50][50], int n, int m) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             for (int k = i; k < n; k++) {
-                if (arr[i][j] > arr[k][j]) {
+                if (arr[i][j] > arr[k][j]){
                     temp = arr[i][j];
                     arr[i][j] = arr[k][j];
                     arr[k][j] = temp;
                 }
             }
         }
-    }
-}
-void dieukien(int arr[50][50], int n, int m) {
-    for (int i = 0; i < n; i++){
-         for (int j = 0; j < m; j++) {
-               if (j % 2 == 0) {
-                  giamdan(arr,n,m);
-               }
-               else {
-                  tangdan(arr,n,m);
-                }
-         }
     }
 }
 int main()
@@ -63,8 +51,16 @@ int main()
     scanf_s("%d%d", &n,&m);
     int arr[50][50];
     nhapmang(arr, n,m);
+    printf("mang ban da nhap la :\n");
     xuatmang(arr, n, m);
-    dieukien(arr, n, m);
+        for (int j = 0; j < m; j++) {
+            if (j % 2 == 0) {
+                giamdan(arr, n, m);
+            }
+            else {
+                tangdan(arr, n, m);
+            }
+        }
     printf("mang sau khi sap xep cua ban la :\n");
     xuatmang(arr, n,m);
 }
