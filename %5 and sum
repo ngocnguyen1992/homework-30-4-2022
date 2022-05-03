@@ -1,0 +1,42 @@
+#include <stdio.h>
+void nhapmang(int arr[50][50], int n, int m) {
+    printf("nhap gia tri cho mang : ");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            scanf_s("%d", &arr[i][j]);
+        }
+    }
+}
+void xuatmang(int arr[50][50], int n, int m) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            printf("%.3d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+int main()
+{
+    int n,m;
+    printf("nhap chieu dai cho mang n :");
+    scanf_s("%d%d", &n,&m);
+    int arr[50][50];
+    nhapmang(arr, n,m);
+    printf("mang ban da nhap la :\n");
+    xuatmang(arr, n, m);
+    printf("cac so chia het cho 5 la :");
+    int s = 0;
+    for (int i = 0; i < n; i++) {
+        int count = 0;
+        for (int j = 0; j < m; j++) {
+            if (arr[i][j] % 5 == 0) {            
+                count = arr[i][j];               
+                s+= count;
+                if(count>0){ 
+                printf("%d ", count);
+                }
+            }
+        }
+    }
+    printf("\ntong cua i j chia het cho 5 la :%d", s);
+}
