@@ -1,0 +1,45 @@
+#include <stdio.h>
+void nhapmang(int arr[], int n) {
+    printf("Nhap gia tri cho mang : \n");
+    for (int i = 0; i < n; i++) {
+        scanf_s("%d", &arr[i]);
+    }
+}
+void xuatmang(int arr[], int n) {
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+}void timso(int arr[], int arr2[], int n, int m, int k) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] % 3 == 0) {
+            arr2[m++] = arr[i]; 
+            arr[i] = arr2[k++];
+        }
+    }   
+}
+void sapxep(int arr[], int arr2[], int n, int m, int k) {
+    int temp = arr2[0];
+    for (int i = 0; i < m; i++) {
+        arr2[i] = arr2[i + 1];
+        if (i == m - 1) {
+            arr2[i] = temp;
+            break;
+        }
+    }
+}
+int main()
+{
+    int n;
+    int arr2[1000];
+    int k = 0;
+    int m = 0;
+    printf("nhap chieu dai cho mang n :");
+    scanf_s("%d", &n);
+    int arr[1000];
+    nhapmang(arr,n);
+    timso(arr, arr2, n, m, k);
+    sapxep(arr, arr2, n,m,k);   
+    printf("\ncac so chia het cho 3 la :"); 
+    xuatmang(arr, n);
+}
