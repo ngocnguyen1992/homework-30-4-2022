@@ -42,6 +42,6 @@ int main()
     int arr[1000];
     nhapmang(arr,n);
     timso(arr, arr2, n);
-    printf("\ncac so chia het cho 3 la :"); 
+    printf("cac so chia het cho 3 la :"); 
     xuatmang(arr, n);
 }
