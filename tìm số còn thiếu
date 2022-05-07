@@ -25,7 +25,7 @@ void xuatmang(int arr[], int n) {
         printf("%d ", arr[i]);
     }
 }
-int tangdan(int arr[], int n) {
+void tangdan(int arr[], int n) {
     int temp;
     for (int i = 0; i < n; i++)
     {
@@ -37,7 +37,6 @@ int tangdan(int arr[], int n) {
             }
         }
     }
-    return 1;
 }
 int main()
 {
